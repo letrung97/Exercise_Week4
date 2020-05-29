@@ -1,24 +1,22 @@
+package com.example.exercise_week4.adapter
+
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
-import android.content.Intent
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Dao
 import com.bumptech.glide.Glide
-import com.example.exercise_week4.fragment.OverviewFragment
 import com.example.exercise_week4.R
-import com.example.exercise_week4.fragment.FavoriteFragment
 import com.example.movieapp.models.Movie
 
+@Dao
 class MovieAdapter(val context : Context, val movies :MutableList<Movie>,val action : Int) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     inner class MovieViewHolder(

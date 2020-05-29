@@ -1,12 +1,14 @@
 package com.example.movieapp.models
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity
 data class Movie(
     @SerializedName("popularity")
     val popularity : Float,

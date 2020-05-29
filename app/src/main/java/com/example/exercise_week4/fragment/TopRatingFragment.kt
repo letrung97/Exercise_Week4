@@ -1,6 +1,6 @@
 package com.example.exercise_week4.fragment
 
-import MovieAdapter
+import com.example.exercise_week4.adapter.MovieAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

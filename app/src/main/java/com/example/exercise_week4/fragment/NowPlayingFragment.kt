@@ -1,6 +1,6 @@
 package com.example.exercise_week4.fragment
 
-import MovieAdapter
+import com.example.exercise_week4.adapter.MovieAdapter
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -28,7 +28,8 @@ class NowPlayingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         recycler_view.layoutManager = LinearLayoutManager(context)
-        recycler_view.adapter = MovieAdapter(context!! , Movie.getMovies(),R.id.action_nowPlayingFragment_to_overviewFragment)}
+        recycler_view.adapter = MovieAdapter(context!! , Movie.getMovies(),R.id.action_nowPlayingFragment_to_overviewFragment)
+    }
 
 
 
