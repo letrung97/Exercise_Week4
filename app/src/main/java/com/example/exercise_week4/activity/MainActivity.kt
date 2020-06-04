@@ -10,7 +10,10 @@ import com.example.exercise_week4.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
+    companion object{
+        const val BASE_URL = "https://api.themoviedb.org/3/"
+        const val API_KEY = "7519cb3f829ecd53bd9b7007076dbe23"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -1,10 +1,17 @@
 package com.example.movieapp.models
 
+import MovieDatabase.Companion.db
 import android.os.Parcelable
+import com.example.exercise_week4.database.VideoResponse
+import com.example.exercise_week4.model.MovieService
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.parcel.Parcelize
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 @Parcelize
 data class Movie(
@@ -51,8 +58,26 @@ data class Movie(
     @SerializedName("overview")
     val overview : String) : Parcelable {
     companion object {
+        fun getDataFromApi(){
+            MovieService.getInstance().getApi().getTopRateMovie().enqueue(object :
+                Callback<VideoResponse> {
+                override fun onFailure(call: Call<VideoResponse>?, t: Throwable?) {
+                }
+                override fun onResponse(
+                    call: Call<VideoResponse>?,
+                    response: Response<VideoResponse>?
+                ) {
+                    response?.let {
+                        val resp = it.body()
+                        db=resp.result.toMutableList()
+                    }
+                }
+            })
+        }
         fun getMovies() : MutableList<Movie> {
-           return Gson().fromJson(MovieDatabase.database,object : TypeToken<List<Movie>>(){}.type)
+            getDataFromApi()
+           //return Gson().fromJson(MovieDatabase.database,object : TypeToken<List<Movie>>(){}.type)
+            return db
         }
 
         fun getMoviesTopRating() : MutableList<Movie>{

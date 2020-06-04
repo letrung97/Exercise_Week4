@@ -1,3 +1,6 @@
+import com.example.movieapp.models.Movie
+import java.util.ArrayList
+
 class MovieDatabase {
     companion object {
         var database: String = """
@@ -303,5 +306,6 @@ class MovieDatabase {
             ]
 
         """
+        var db:MutableList<Movie> = ArrayList()
     }
 }
